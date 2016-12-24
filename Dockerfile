@@ -4,6 +4,7 @@ COPY sources.list /etc/apt/sources.list
 RUN apt-get update && apt-get install \
 	vim \
 	git \
+	make \
 	zsh \
 	wget \
 	curl \

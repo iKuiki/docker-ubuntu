@@ -12,5 +12,7 @@ RUN sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/ins
 RUN chsh -s /bin/zsh
 COPY sources.list /etc/apt/sources.list
 COPY kuishell.zsh-theme /root/.oh-my-zsh/themes/
+RUN echo "Asia/Shanghai" > /etc/timezone
+RUN dpkg-reconfigure -f noninteractive tzdata
 WORKDIR /root
 CMD zsh

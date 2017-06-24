@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install \
 	zsh \
 	wget \
 	curl \
+	tzdata \
 	-y && apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)";exit 0
 RUN chsh -s /bin/zsh

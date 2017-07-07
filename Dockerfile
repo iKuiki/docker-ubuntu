@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install \
 	wget \
 	curl \
 	tzdata \
-	-y && apt-get clean && rm -rf /var/lib/apt/lists/*
+	-y && apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)";exit 0
 RUN chsh -s /bin/zsh
 COPY sources.list /etc/apt/sources.list

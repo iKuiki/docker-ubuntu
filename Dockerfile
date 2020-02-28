@@ -1,5 +1,6 @@
 FROM ubuntu:18.04
 
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install \
 	vim \
 	git \
@@ -15,5 +16,8 @@ RUN sed -i 's/archive.ubuntu/mirrors.aliyun/g' /etc/apt/sources.list
 RUN sed -i 's/security.ubuntu/mirrors.aliyun/g' /etc/apt/sources.list
 RUN echo "Asia/Shanghai" > /etc/timezone
 RUN dpkg-reconfigure -f noninteractive tzdata
+ENV DEBIAN_FRONTEND=dialog
+# Set time zone
+ENV TZ=Asia/Shanghai
 WORKDIR /root
 CMD zsh
